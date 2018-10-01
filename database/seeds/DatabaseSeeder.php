@@ -61,15 +61,6 @@ class DatabaseSeeder extends Seeder
                 'change24h_key' => $indexes[$source]['24h_key']
             ]);
 
-
-            foreach ($coinNames as $coinId => $coinName) {
-
-                DB::table('coin_metas')->insert([
-                    'coin_id' => $coinId,
-                    'source_id' => $id,
-                    'api_slug' => $coinName
-                ]);
-            }
         }
 
         exec('php artisan get-crypto-info');
